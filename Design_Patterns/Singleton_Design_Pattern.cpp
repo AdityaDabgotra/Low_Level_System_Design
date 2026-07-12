@@ -1,10 +1,12 @@
 #include<iostream>
+#include<mutex>
 
 using namespace std;
 
 class Singleton{
 private:
     static Singleton* instance;
+    static mutex mtx;
 
     Singleton(){
         cout<<"Singleton Constructor called. New Object is Created"<<endl;
@@ -12,14 +14,20 @@ private:
 
 public:
     static Singleton* getInstance(){
+
         if(instance == nullptr){
-            instance = new Singleton();
+            lock_guard<mutex>lock(mtx);         //lock for thread safety
+            if(instance == nullptr){
+                instance = new Singleton();
+            }
         }
         return instance;
     }
 };
 
+//initialise static members
 Singleton* Singleton::instance = nullptr;
+mutex Singleton::mtx;
 
 int main(){
     Singleton* s1 = Singleton::getInstance();
