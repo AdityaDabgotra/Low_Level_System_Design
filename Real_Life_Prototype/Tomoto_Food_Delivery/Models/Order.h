@@ -4,7 +4,7 @@
 #include<iostream>
 #include<vector>
 #include<string>
-#include"User.h"
+#include"Users.h"
 #include"Restaurant.h"
 #include"MenuItem.h"
 #include"../Strategies/PaymentStrategy.h"
@@ -74,7 +74,7 @@ public:
         items = its;
         totalPrice = 0;
         for(auto &i : items){
-            totalPrice += i.getPrice();
+            totalPrice += i->getPrice();
         }
     }
 
@@ -95,14 +95,14 @@ public:
     }
 
     double getTotal() const {
-        return total;
+        return totalPrice;
     }
 
     void setTotal(int total) {
-        this->total = total;
+        this->totalPrice = total;
     }
 };
 
-int Order::nextOrderId = 0;
+int Order::nextorderId = 0;
 
 #endif // ORDER_H
