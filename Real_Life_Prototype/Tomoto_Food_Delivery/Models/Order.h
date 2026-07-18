@@ -8,7 +8,7 @@
 #include"Restaurant.h"
 #include"MenuItem.h"
 #include"../Strategies/PaymentStrategy.h"
-#include"../utils/TimeUtil.h"
+#include"../utils/TimeUtils.h"
 using namespace std;
 
 class Order{
