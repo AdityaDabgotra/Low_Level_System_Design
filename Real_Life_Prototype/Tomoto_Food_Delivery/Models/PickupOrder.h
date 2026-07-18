@@ -13,12 +13,12 @@ public:
         restaurantAddress = "";
     }
 
-    string getType() override {
+    string getType() const override {
         return "Pickup";
     }
 
     //getters and setters
-    void setRestaurantAddress(string& address) {
+    void setRestaurantAddress(const string& address) {
         restaurantAddress = address;
     }
 
