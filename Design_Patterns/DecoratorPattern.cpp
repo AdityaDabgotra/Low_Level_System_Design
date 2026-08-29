@@ -18,7 +18,7 @@ public:
     }
 };
 
-// Abstract Decorator: CharacterDecorator "is-a" Charatcer and "has-a" Character.
+// Abstract Decorator: CharacterDecorator "is-a" Character and "has-a" Character.
 class CharacterDecorator : public Character {
 protected:
     Character* character;  // Wrapped component
